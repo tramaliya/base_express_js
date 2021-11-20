@@ -4,7 +4,7 @@ var router = express.Router();
 
 // Bot Setting
 const TelegramBot = require('node-telegram-bot-api');
-const token = '2135832460:AAHvVbCAx_EqWe7Ep-_XHcf4uN-ifR-KIG4';
+const token = '2133290397:AAHIgB1ZusJ-m2-TluhcnWMfZQNwfRPMk1U';
 const bot = new TelegramBot(token, {polling: true});
 
 
@@ -15,7 +15,18 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `hello ${msg.chat.first_name}, welcome...\n
-        click /predict`
+        click /show_url`
+    );
+});
+
+bot.onText(/\/show_url/, (msg) => {
+    global_msg_id = msg.chat.id;
+    bot.sendMessage(
+        global_msg_id,
+        `
+            https://esp-telebot.herokuapp.com/api/sensor/123/65/78 \n
+            https://esp-telebot.herokuapp.com/api/test/cobacoba
+        `
     );
 });
 
@@ -32,7 +43,7 @@ router.get('/', (req, res, next) => {
   });
 });
 
-
+// https://esp-telebot.herokuapp.com/api/sensor/123/65/78
 router.get('/sensor/:sensor1/:sensor2/:sensor3', (req, res, next) => {
   try {
       bot.sendMessage(
@@ -53,7 +64,7 @@ router.get('/sensor/:sensor1/:sensor2/:sensor3', (req, res, next) => {
   }
 });
 
-
+// https://esp-telebot.herokuapp.com/api/test/cobacoba
 router.get('/test/:key', function(req, res, next){
     bot.sendMessage(
             global_msg_id, //msg.id
