@@ -16,7 +16,7 @@ bot.onText(/\/start/, (msg) => {
         global_msg_id,
         `Hai ${msg.chat.first_name}, \n
         Menu 
-        show_url`
+        /show_url`
     );
 });
 
