@@ -15,7 +15,8 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `Hai ${msg.chat.first_name}, \n
-        Menu /show_url`
+        Menu 
+        show_url`
     );
 });
 
@@ -24,8 +25,8 @@ bot.onText(/\/show_url/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `
-            Pembacaan sensor 1: https://esp328-telebot.herokuapp.com/api/sensor/123/65/78 \n
-            Menu lain: https://esp328-telebot.herokuapp.com/api/test/cobacoba
+            Pembacaan sensor 1: https://esp328-telebot.herokuapp.com/api/sensor/12/34/56 \n
+            Menu lain: https://esp328-telebot.herokuapp.com/api/test/test menu
         `
     );
 });
