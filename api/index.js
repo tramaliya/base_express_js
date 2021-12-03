@@ -25,9 +25,7 @@ bot.onText(/\/show_url/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `
-            Pembacaan sensor 1: https://esp328-telebot.herokuapp.com/api/sensor/12 \n
-            Pembacaan sensor 2: https://esp328-telebot.herokuapp.com/api/sensor/78 \n
-            Pembacaan sensor 3: https://esp328-telebot.herokuapp.com/api/sensor/59 \n
+            Pembacaan sensor: https://esp328-telebot.herokuapp.com/api/sensor/12//34//56\n
             Menu lain: https://esp328-telebot.herokuapp.com/api/test/testmenu
         `
     );
@@ -51,7 +49,9 @@ router.get('/sensor/:sensor1/:sensor2/:sensor3', (req, res, next) => {
   try {
       bot.sendMessage(
             global_msg_id, //msg.id
-            `Pembacaan Sensor:: ${req.params.sensor1}, ${req.params.sensor2}, ${req.params.sensor3}`
+            `Pembacaan Sensor:: ${req.params.sensor1}`
+            `Pembacaan Sensor:: ${req.params.sensor2}`
+            `Pembacaan Sensor:: ${req.params.sensor3}`
      );
       res.json({
         "status": 202,
