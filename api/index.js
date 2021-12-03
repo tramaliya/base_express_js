@@ -4,7 +4,7 @@ var router = express.Router();
 
 // Bot Setting
 const TelegramBot = require('node-telegram-bot-api');
-const token = '2135832460:AAHvVbCAx_EqWe7Ep-_XHcf4uN-ifR-KIG4';
+const token = '2133290397:AAHIgB1ZusJ-m2-TluhcnWMfZQNwfRPMk1U';
 const bot = new TelegramBot(token, {polling: true});
 
 
@@ -14,9 +14,8 @@ bot.onText(/\/start/, (msg) => {
     global_msg_id = msg.chat.id;
     bot.sendMessage(
         global_msg_id,
-        `Hai ${msg.chat.first_name}, \n
-        Menu 
-        /show_url`
+        `hello ${msg.chat.first_name}, welcome...\n
+        click /show_url`
     );
 });
 
@@ -25,8 +24,8 @@ bot.onText(/\/show_url/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `
-            Pembacaan sensor: https://esp328-telebot.herokuapp.com/api/sensor/13/46/57\n
-            Menu lain: https://esp328-telebot.herokuapp.com/api/test/testmenu
+            Contoh URL::/nhttps://esp-telebot.herokuapp.com/api/sensor/31/64/97 \n
+            https://esp-telebot.herokuapp.com/api/test/testmenu
         `
     );
 });
@@ -49,17 +48,17 @@ router.get('/sensor/:sensor1/:sensor2/:sensor3', (req, res, next) => {
   try {
       bot.sendMessage(
             global_msg_id, //msg.id
-            `Pembacaan Sensor:: ${req.params.sensor1}`
-            `Pembacaan Sensor:: ${req.params.sensor2}`
-            `Pembacaan Sensor:: ${req.params.sensor3}`
+            `Pembacaan Sensor:: ${req.params.sensor1}, 
+            Pembacaan Sensor: ${req.params.sensor2}, 
+            Pembacaan Sensor:${req.params.sensor3}`
      );
       res.json({
         "status": 202,
-        "messgae": "Success",
+        "message": "Success",
         "data": {
-          "sensor_1": req.params.sensor1,
-          "sensor_2": req.params.sensor2,
-          "sensor_3": req.params.sensor3
+          "sensor_1": parseInt(req.params.sensor3),
+          "sensor_2": parseInt(req.params.sensor1),
+          "sensor_3": parseInt(req.params.sensor2)
         }
       });
   } catch (err) {
