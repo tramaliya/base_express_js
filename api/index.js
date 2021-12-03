@@ -24,7 +24,7 @@ bot.onText(/\/show_url/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `
-            Contoh URL::/nhttps://esp-telebot.herokuapp.com/api/sensor/31/64/97 \n
+            Contoh URL:: https://esp-telebot.herokuapp.com/api/sensor/31/64/97 \n
             https://esp-telebot.herokuapp.com/api/test/testmenu
         `
     );
