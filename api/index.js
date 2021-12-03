@@ -25,7 +25,9 @@ bot.onText(/\/show_url/, (msg) => {
     bot.sendMessage(
         global_msg_id,
         `
-            Pembacaan sensor 1: https://esp328-telebot.herokuapp.com/api/sensor/12/34/56 \n
+            Pembacaan sensor 1: https://esp328-telebot.herokuapp.com/api/sensor/12 \n
+            Pembacaan sensor 2: https://esp328-telebot.herokuapp.com/api/sensor/78 \n
+            Pembacaan sensor 3: https://esp328-telebot.herokuapp.com/api/sensor/59 \n
             Menu lain: https://esp328-telebot.herokuapp.com/api/test/testmenu
         `
     );
